@@ -22,7 +22,13 @@ env:
   DOCKER_ID: ${{ secrets.DOCKER_ID }}
   DOCKER_PASSWD: ${{ secrets.DOCKER_PASSWD }}
   TZ: Asia/Shanghai
-
+  
+  # 设置AX3600的硬件参数
+  TARGET_BOARD: "ipq807x"       # AX3600的芯片组
+  TARGET_SUBTARGET: "generic"
+  TARGET_PROFILE: "xiaomi_ax3600"  # 设备型号
+  # 添加必要驱动和插件
+  PACKAGES: "kmod-qca-nss-drv kmod-qca-nss-drv-64 luci-app-ssr-plus luci-theme-argon"
 jobs:
   build:
     runs-on: ubuntu-latest
